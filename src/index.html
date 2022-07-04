@@ -8,23 +8,37 @@
   </head>
 
   <body>
-    <div class="wrapper">
-      <div class="slider-container">
-        <div class="slider-track">
-          <div class="slider-item"></div>
-          <div class="slider-item"></div>
-          <div class="slider-item"></div>
-          <div class="slider-item"></div>
-          <div class="slider-item"></div>
-          <div class="slider-item"></div>
-          <div class="slider-item"></div>
-          <div class="slider-item"></div>
-          <div class="slider-item"></div>
+    <div class="slider">
+      <div class="slider__body">
+        <button class="slider__prev btn">❮</button>
+
+        <div class="slider__container">
+          <div class="slider__track" style="transform: translateX(-456px)">
+            <div class="slider__slide">
+              <img src="./img/chicken.png" alt="slide" />
+            </div>
+            <div class="slider__slide">
+              <img src="./img/hamburger.png" alt="slide" />
+            </div>
+            <div class="slider__slide">
+              <img src="./img/meat-ball.png" alt="slide" />
+            </div>
+            <div class="slider__slide">
+              <img src="./img/pizza.png" alt="slide" />
+            </div>
+            <div class="slider__slide">
+              <img src="./img/rice.png" alt="slide" />
+            </div>
+            <div class="slider__slide">
+              <img src="./img/sausage.png" alt="slide" />
+            </div>
+            <div class="slider__slide">
+              <img src="./img/shrimp.png" alt="slide" />
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="slider-buttons">
-        <button class="btn-prev">Prev</button>
-        <button class="btn-next">Next</button>
+
+        <button class="slider__next btn" disabled="">❯</button>
       </div>
     </div>
   </body>

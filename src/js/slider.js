@@ -1,28 +1,48 @@
 
 let position = 0;
 const slidesToShow = 4;
-const slidesToScroll = 2;
-const container = document.querySelector('.slider-container');
-const track =  document.querySelector('.slider-track');  
-const item = document.querySelector('.slider-item');  
-const btnPrev = document.querySelector('.btn-prev');  
-const btnNext =  document.querySelector('.btn-next');  
-const itemWidth = container.width() / slidesToShow;
+const slidesToScroll = 1;
 
+const container = document.querySelector(".slider__container");
+const track = document.querySelector(".slider__track");
+const slides = document.querySelectorAll(".slider__slide");
+const slidesCount = slides.length;
+const prevBtn = document.querySelector(".slider__prev");
+const nextBtn = document.querySelector(".slider__next");
 
-item.each( function (index, item) {
-  $(item).css({
-    minWidth: itemWidth,
-  })  
-})
-item.each(function (index, item){
-  $(item).css({
-    minWidth: itemWidth,
-  });
-})
+const slidesWidth = container.clientWidth / slidesToShow;
+const movePosition = slidesToScroll * slidesWidth;
 
+nextBtn.addEventListener("click", () => {
+  const slidesLeft =
+    slidesCount -
+    (Math.abs(position) + slidesToShow * slidesWidth) / slidesWidth;
 
-// item.forEach((item) => {
-//   item.style.minWidth = `${itemWidth}px`;    
-// });
+  position -=
+    slidesLeft >= slidesToScroll ? movePosition : slidesLeft * slidesWidth;
+
+  setPosition();
+  checkBtns();
+});
+
+prevBtn.addEventListener("click", () => {
+  const slidesLeft = Math.abs(position) / slidesWidth;
+
+  position +=
+    slidesLeft >= slidesToScroll ? movePosition : slidesLeft * slidesWidth;
+
+  setPosition();
+  checkBtns();
+});
+
+const setPosition = () => {
+  track.style.transform = `translateX(${position}px)`;
+};
+
+const checkBtns = () => {
+  prevBtn.disabled = position === 0;
+  nextBtn.disabled = position <= -(slidesCount - slidesToShow) * slidesWidth;
+};
+
+checkBtns();
 
