@@ -16,9 +16,9 @@ function clearAll () {
   out.textContent = 0;
 }
 
-document.querySelector('.ac').onclick = clearAll;
+document.querySelector('.ac').addEventListener = clearAll;
 
-document.querySelector('.buttons').onclick = (event) => {
+document.querySelector('.buttons').addEventListener = (event) => {
      //Нажата не кнопка
     if(!event.target.classList.contains('.btn')) return;
     //Нажата кнопка ClearAll ac
@@ -36,3 +36,4 @@ document.querySelector('.buttons').onclick = (event) => {
       out.textContent = a;
     }
 }
+console.log('heool')
