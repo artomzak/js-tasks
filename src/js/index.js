@@ -1,3 +1,3 @@
 
 //импорт js файлов
-import './slider.js'
+import './calc.js'
