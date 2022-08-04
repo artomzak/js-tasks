@@ -1,39 +1,34 @@
-let a = ''; // first number
-let b = ''; // second number
-let sign = false;
+const clear = document.querySelector(".ac");
+const buttons = document.querySelector(".buttons");
+let resultInput = document.querySelector(".result")
 
-const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', 'X', '/'];
+let result = "";
 
-// экран калькулятора 
-const out = document.querySelector('.calc-screen p');
+const enterNumbers = (event) => {
+  if (event.target.value === "=") {
+    result = eval(result).toFixed(1);
+    resultInput.value = result;
+    return;
+  }   
 
-function clearAll () {
-  a = ''; //first number result
-  b = ''; // second number 
-  sign = '', //Знак
-  finish = false;
-  out.textContent = 0;
-}
+  if (event.target.value === "ac") {
+    result = "";
+    resultInput.value = result;
+    return;
+  }
+  if (event.target.value === ".") {
+    result = "0";
+    resultInput.value = result;
+    return;
+    
+  }
 
-document.querySelector('.ac').addEventListener = clearAll;
+result += event.target.value;
+resultInput.value = result;
 
-document.querySelector('.buttons').addEventListener = (event) => {
-     //Нажата не кнопка
-    if(!event.target.classList.contains('.btn')) return;
-    //Нажата кнопка ClearAll ac
-    if(event.target.classList.contains('ac')) return;
-
-    out.textContent = '';
-    //Получаю нажатую кнопку
-    const key = event.target.textContent;
+};
 
 
-    //если нажата клавиша 0-9 или .
-    if (digit.includes(key)) {
-      a+= key;
-      console.log( a, b, sign);
-      out.textContent = a;
-    }
-}
-console.log('heool')
+buttons.addEventListener("click", enterNumbers, );
+
+
